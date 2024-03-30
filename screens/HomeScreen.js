@@ -63,7 +63,9 @@ const HomeScreen = () => {
                     }
                   >
                     <MapPinIcon size="20" color="gray" />
-                    <Text>Bandung, Indonesia</Text>
+                    <Text className="text-black text-lg ml-2">
+                      Bandung, Indonesia
+                    </Text>
                   </TouchableOpacity>
                 );
               })}
