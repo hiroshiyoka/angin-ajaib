@@ -2,13 +2,14 @@ import { StatusBar } from "expo-status-bar";
 import {
   Image,
   SafeAreaView,
+  ScrollView,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
 import { useState } from "react";
 import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
-import { MapPinIcon } from "react-native-heroicons/solid";
+import { CalendarDaysIcon, MapPinIcon } from "react-native-heroicons/solid";
 import { theme } from "../theme";
 
 const HomeScreen = () => {
@@ -132,6 +133,31 @@ const HomeScreen = () => {
               </Text>
             </View>
           </View>
+        </View>
+
+        {/* Forecast for Next Days */}
+        <View className="mb-2 space-y-3">
+          <View className="flex-row items-center mx-5 space-x-2">
+            <CalendarDaysIcon size="22" color="white" />
+            <Text className="text-white text-base">Daily Forecast</Text>
+          </View>
+          <ScrollView
+            horizontal
+            contentContainerStyle={{ paddingHorizontal: 15 }}
+            showsHorizontalScrollIndicator={false}
+          >
+            <View
+              className="flex justify-center items-center w-24 rounded-3xl py-3 space-y-1 mr-4"
+              style={{ backgroundColor: theme.bgWhite(0.15) }}
+            >
+              <Image
+                source={require("../assets/images/heavy-rain.png")}
+                className="h-11 w-11"
+              />
+              <Text className="text-white">Monday</Text>
+              <Text className="text-white text-xl font-semibold">13&#176;</Text>
+            </View>
+          </ScrollView>
         </View>
       </SafeAreaView>
     </View>
