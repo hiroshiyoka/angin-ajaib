@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
+import { theme } from "../theme";
 
 const HomeScreen = () => {
   return (
@@ -19,13 +20,19 @@ const HomeScreen = () => {
       />
       <SafeAreaView className="flex flex-1">
         <View style={{ height: "7%" }} className="mx-4 relative z-50">
-          <View className="flex justify-end items-center rounded-full">
+          <View
+            className="flex justify-end items-center rounded-full"
+            style={{ backgroundColor: theme.bgWhite(0.2) }}
+          >
             <TextInput
               className="pl-6 pb-1 h-10 flex-1 text-base text-white"
               placeholder="Search City"
               placeholderTextColor={"lightgray"}
             />
-            <TouchableOpacity className="rounded-full p-3 m-1">
+            <TouchableOpacity
+              style={{ backgroundColor: theme.bgWhite(0.3) }}
+              className="rounded-full p-3 m-1"
+            >
               <MagnifyingGlassIcon size="25" color="white" />
             </TouchableOpacity>
           </View>
