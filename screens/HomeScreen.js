@@ -105,6 +105,33 @@ const HomeScreen = () => {
               Partly Cloudy
             </Text>
           </View>
+
+          {/* Other stats */}
+          <View className="flex-row justify-between mx-4">
+            <View className="flex-row space-x-2 items-center">
+              <Image
+                source={require("../assets/images/wind.png")}
+                className="h-6 w-6"
+              />
+              <Text className="text-white font-semibold text-base">22Km</Text>
+            </View>
+            <View className="flex-row space-x-2 items-center">
+              <Image
+                source={require("../assets/images/drop.png")}
+                className="h-6 w-6"
+              />
+              <Text className="text-white font-semibold text-base">23%</Text>
+            </View>
+            <View className="flex-row space-x-2 items-center">
+              <Image
+                source={require("../assets/images/sun.png")}
+                className="h-6 w-6"
+              />
+              <Text className="text-white font-semibold text-base">
+                6:05 AM
+              </Text>
+            </View>
+          </View>
         </View>
       </SafeAreaView>
     </View>
