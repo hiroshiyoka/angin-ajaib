@@ -15,6 +15,10 @@ const HomeScreen = () => {
   const [showSearch, toggleSearch] = useState(false);
   const [locations, setLocations] = useState([1, 2, 3]);
 
+  const handleLocation = (location) => {
+    console.log("Location: ", location);
+  };
+
   return (
     <View className="flex-1 relative">
       <StatusBar style="light" />
@@ -57,6 +61,7 @@ const HomeScreen = () => {
                 return (
                   <TouchableOpacity
                     key={index}
+                    onPress={() => handleLocation(location)}
                     className={
                       "flex-row items-center border-0 p-3 px-4 mb-1" +
                       borderClass
