@@ -77,6 +77,17 @@ const HomeScreen = () => {
             </View>
           ) : null}
         </View>
+
+        {/* Forecast Section */}
+        <View className="mx-4 flex justify-around flex-1 mb-2">
+          {/* Location */}
+          <Text className="text-white text-center text-2xl font-bold">
+            Bandung,
+            <Text className="text-lg font-semibold text-gray-300">
+              Indonesia
+            </Text>
+          </Text>
+        </View>
       </SafeAreaView>
     </View>
   );
