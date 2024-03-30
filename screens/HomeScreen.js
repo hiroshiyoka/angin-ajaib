@@ -25,7 +25,9 @@ const HomeScreen = () => {
         <View style={{ height: "7%" }} className="mx-4 relative z-50">
           <View
             className="flex justify-end items-center rounded-full"
-            style={{ backgroundColor: theme.bgWhite(0.2) }}
+            style={{
+              backgroundColor: showSearch ? theme.bgWhite(0.2) : "transparent",
+            }}
           >
             {showSearch ? (
               <TextInput
