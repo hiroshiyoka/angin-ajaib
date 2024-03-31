@@ -12,17 +12,22 @@ import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import { CalendarDaysIcon, MapPinIcon } from "react-native-heroicons/solid";
 import { theme } from "../theme";
 import { debounce } from "lodash";
+import { fetchLocations } from "../api/weather";
 
 const HomeScreen = () => {
   const [showSearch, toggleSearch] = useState(false);
-  const [locations, setLocations] = useState([1, 2, 3]);
+  const [locations, setLocations] = useState([]);
 
   const handleLocation = (location) => {
     console.log("Location: ", location);
   };
 
   const handleSearch = (value) => {
-    console.log(value);
+    if (value.length > 2) {
+      fetchLocations({ cityName: value }).then((data) => {
+        setLocations(data);
+      });
+    }
   };
 
   const handleTextDebounce = useCallback(debounce(handleSearch, 1200), []);
