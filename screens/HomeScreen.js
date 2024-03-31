@@ -17,14 +17,16 @@ import { fetchLocations, fetchWeatherForecast } from "../api/weather";
 const HomeScreen = () => {
   const [showSearch, toggleSearch] = useState(false);
   const [locations, setLocations] = useState([]);
+  const [weather, setWeather] = useState({});
 
   const handleLocation = (location) => {
     setLocations([]);
+    toggleSearch(false);
     fetchWeatherForecast({
       cityName: location.name,
       days: "7",
     }).then((data) => {
-      console.log(data);
+      setWeather(data);
     });
   };
 
