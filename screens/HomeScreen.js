@@ -40,6 +40,8 @@ const HomeScreen = () => {
 
   const handleTextDebounce = useCallback(debounce(handleSearch, 1200), []);
 
+  const { current, location } = weather;
+
   return (
     <View className="flex-1 relative">
       <StatusBar style="light" />
@@ -104,9 +106,9 @@ const HomeScreen = () => {
         <View className="mx-4 flex justify-around flex-1 mb-2">
           {/* Location */}
           <Text className="text-white text-center text-2xl font-bold">
-            Bandung,
+            {location?.name},
             <Text className="text-lg font-semibold text-gray-300">
-              Indonesia
+              {" " + location?.country}
             </Text>
           </Text>
 
@@ -121,10 +123,10 @@ const HomeScreen = () => {
           {/* Degree celcius */}
           <View className="space-y-2">
             <Text className="text-center font-bold text-white text-6xl ml-5">
-              23&#176;
+              {current?.temp_c}&#176;
             </Text>
             <Text className="text-center text-white text-xl tracking-widest">
-              Partly Cloudy
+              {current?.condition?.text}
             </Text>
           </View>
 
