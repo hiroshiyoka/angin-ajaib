@@ -83,7 +83,7 @@ const HomeScreen = () => {
                   >
                     <MapPinIcon size="20" color="gray" />
                     <Text className="text-black text-lg ml-2">
-                      Bandung, Indonesia
+                      {location.cityName}, {location.country}
                     </Text>
                   </TouchableOpacity>
                 );
