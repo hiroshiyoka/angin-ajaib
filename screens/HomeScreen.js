@@ -7,10 +7,11 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import { CalendarDaysIcon, MapPinIcon } from "react-native-heroicons/solid";
 import { theme } from "../theme";
+import { debounce } from "lodash";
 
 const HomeScreen = () => {
   const [showSearch, toggleSearch] = useState(false);
@@ -19,6 +20,12 @@ const HomeScreen = () => {
   const handleLocation = (location) => {
     console.log("Location: ", location);
   };
+
+  const handleSearch = (value) => {
+    console.log(value);
+  };
+
+  const handleTextDebounce = useCallback(debounce(handleSearch, 1200), []);
 
   return (
     <View className="flex-1 relative">
@@ -38,6 +45,7 @@ const HomeScreen = () => {
           >
             {showSearch ? (
               <TextInput
+                onChangeText={handleTextDebounce}
                 className="pl-6 pb-1 h-10 flex-1 text-base text-white"
                 placeholder="Search City"
                 placeholderTextColor={"lightgray"}
