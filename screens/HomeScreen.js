@@ -12,14 +12,20 @@ import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import { CalendarDaysIcon, MapPinIcon } from "react-native-heroicons/solid";
 import { theme } from "../theme";
 import { debounce } from "lodash";
-import { fetchLocations } from "../api/weather";
+import { fetchLocations, fetchWeatherForecast } from "../api/weather";
 
 const HomeScreen = () => {
   const [showSearch, toggleSearch] = useState(false);
   const [locations, setLocations] = useState([]);
 
   const handleLocation = (location) => {
-    console.log("Location: ", location);
+    setLocations([]);
+    fetchWeatherForecast({
+      cityName: location.name,
+      days: "7",
+    }).then((data) => {
+      console.log(data);
+    });
   };
 
   const handleSearch = (value) => {
