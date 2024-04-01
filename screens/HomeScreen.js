@@ -137,14 +137,18 @@ const HomeScreen = () => {
                 source={require("../assets/icons/wind.png")}
                 className="h-6 w-6"
               />
-              <Text className="text-white font-semibold text-base">22Km</Text>
+              <Text className="text-white font-semibold text-base">
+                {current?.wind_kph}Km
+              </Text>
             </View>
             <View className="flex-row space-x-2 items-center">
               <Image
                 source={require("../assets/icons/drop.png")}
                 className="h-6 w-6"
               />
-              <Text className="text-white font-semibold text-base">23%</Text>
+              <Text className="text-white font-semibold text-base">
+                {current?.humidity}%
+              </Text>
             </View>
             <View className="flex-row space-x-2 items-center">
               <Image
