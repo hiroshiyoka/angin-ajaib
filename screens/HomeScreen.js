@@ -10,7 +10,7 @@ import {
 import { useCallback, useState } from "react";
 import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import { CalendarDaysIcon, MapPinIcon } from "react-native-heroicons/solid";
-import { theme } from "../theme";
+import { theme, weatherImages } from "../theme";
 import { debounce } from "lodash";
 import { fetchLocations, fetchWeatherForecast } from "../api/weather";
 
@@ -115,7 +115,7 @@ const HomeScreen = () => {
           {/* Weather Image */}
           <View className="flex-row justify-center">
             <Image
-              source={require("../assets/images/partlycloudy.png")}
+              source={weatherImages[current?.condition?.text]}
               className="w-52 h-52"
             />
           </View>
