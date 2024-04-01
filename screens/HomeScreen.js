@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import { CalendarDaysIcon, MapPinIcon } from "react-native-heroicons/solid";
 import { theme, weatherImages } from "../theme";
@@ -36,6 +36,19 @@ const HomeScreen = () => {
         setLocations(data);
       });
     }
+  };
+
+  useEffect(() => {
+    fetchMyWeatherData();
+  }, []);
+
+  const fetchMyWeatherData = async () => {
+    fetchWeatherForecast({
+      cityName: "Islamabad",
+      days: "7",
+    }).then((data) => {
+      setWeather(data);
+    });
   };
 
   const handleTextDebounce = useCallback(debounce(handleSearch, 1200), []);
