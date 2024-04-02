@@ -14,6 +14,7 @@ import { CalendarDaysIcon, MapPinIcon } from "react-native-heroicons/solid";
 import { theme, weatherImages } from "../theme";
 import { debounce } from "lodash";
 import { fetchLocations, fetchWeatherForecast } from "../api/weather";
+import { getData, storeData } from "../utils/asyncStorage";
 
 const HomeScreen = () => {
   const [showSearch, toggleSearch] = useState(false);
@@ -31,6 +32,7 @@ const HomeScreen = () => {
     }).then((data) => {
       setWeather(data);
       setLoading(false);
+      storeData("City", location.name);
     });
   };
 
@@ -47,8 +49,12 @@ const HomeScreen = () => {
   }, []);
 
   const fetchMyWeatherData = async () => {
+    let myCity = await getData("City");
+    let cityName = "Islamabad";
+    if (myCity) cityName = myCity;
+
     fetchWeatherForecast({
-      cityName: "Islamabad",
+      cityName,
       days: "7",
     }).then((data) => {
       setWeather(data);
