@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { useCallback, useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
+import * as Progress from "react-native-progress";
 import { CalendarDaysIcon, MapPinIcon } from "react-native-heroicons/solid";
 import { theme, weatherImages } from "../theme";
 import { debounce } from "lodash";
