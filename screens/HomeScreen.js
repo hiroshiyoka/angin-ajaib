@@ -187,7 +187,7 @@ const HomeScreen = () => {
                   className="h-6 w-6"
                 />
                 <Text className="text-white font-semibold text-base">
-                  6:05 AM
+                  {weather?.forecast?.forecastday[0]?.astro?.sunrise}
                 </Text>
               </View>
             </View>
